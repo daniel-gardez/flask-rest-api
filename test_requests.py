@@ -1,7 +1,7 @@
 from requests import get, post
 import json
 
-remote_url = 'https://flask-rest-api-l450.onrender.com'
+remote_url = 'https://flask-rest-api-otcs.onrender.com'
 port = '5000'
 local_url = f'http://127.0.0.1:{port}'
 
