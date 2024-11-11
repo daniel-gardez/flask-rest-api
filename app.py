@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import json
 
 from flask import Flask, jsonify
@@ -33,10 +34,13 @@ def create_app(db_url=None):
 
     api = Api(app)
 
-    with open('secrets.json', 'r') as secrets_file:
-        secrets_json = json.load(secrets_file)
+    #with open('secrets.json', 'r') as secrets_file:
+    #    secrets_json = json.load(secrets_file)
 
-    app.config["JWT_SECRET_KEY"] = secrets_json["JWT_SECRET_KEY"]
+    if os.path.exists('.env'):
+        load_dotenv('.env')
+
+    app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
     jwt = JWTManager(app)
 
     @jwt.token_in_blocklist_loader
