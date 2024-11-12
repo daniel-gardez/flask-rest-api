@@ -18,7 +18,7 @@ store_json = {
     "tags": ["Porn", "More Porn"]
 }
 
-user_post = post(f'{base_url}/register', json={"username": "Pepe", "password": "Jarl"})
+user_post = post(f'{base_url}/register', json={"username": "Pepe", "email": "dgarcia@triplealpha.in", "password": "Jarl"})
 print(get(f'{base_url}/user/1').content)
 user_post = post(f'{base_url}/login', json={"username": "Pepe", "password": "Jarl"})
 access_token = user_post.json()["access_token"]
